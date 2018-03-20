@@ -1,51 +1,54 @@
-/* #6 start the #external #action and say hello */
+// start the #external #action and say hello
 console.log("App is alive");
 
 /**
- * #6 #Switcher function for the #channels name in the right app bar
+/**
+ * function for the #channels name in the right app bar
  * @param channelName Text which is set
  */
 function switchChannel(channelName) {
     //Log the channel switch
-    console.log("Tuning in to channel", channelName);
+    console.log("Tuning in to channel", channelName.name);
 
-    //Write the new channel to the right app bar
-    document.getElementById('channel-name').innerHTML = channelName;
+    // #7 #dgst use object properties to write channel name
+    document.getElementById('channel-name').innerHTML = channelName.name;
 
-    //#6 change the #channel #location
-    document.getElementById('channel-location').innerHTML = 'by <a href="http://w3w.co/upgrading.never.helps" target="_blank"><strong>upgrading.never.helps</strong></a>';
+    // #7 #dgst use object properties to write channel location
+    document.getElementById('channel-location').innerHTML = 'by <a href="http://w3w.co/' + channelName.createdBy + '" target="_blank"><strong>' + channelName.createdBy + '</strong></a>';
 
-    /* #6 #liking channels on #click */
-    $('#channel-star').attr('src', 'http://ip.lfe.mw.tum.de/sections/star-o.png');
+    // liking channels on #click
+    $('#channel-star').toggleClass(className.starred ? 'fa-star-o' : 'fa-star');
 
-    /* #6 #highlight the selected #channel.
+    /* highlight the selected #channel.
        This is inefficient (jQuery has to search all channel list items), but we'll change it later on */
     $('#channels li').removeClass('selected');
     $('#channels li:contains(' + channelName + ')').addClass('selected');
 }
 
-/* #6 #liking a channel on #click */
+/* liking a channel on #click
+  * #7 #str use toggleClass to change star on click
+  */
 function star() {
-    $('#channel-star').attr('src', 'http://ip.lfe.mw.tum.de/sections/star.png');
+    $('#channel-star').toggleClass('fa-star, fa-star-o');
 }
 
 /**
- * #6 #taptab selects the given tab
+ * selects the given tab
  * @param tabId #id of the tab
  */
 function selectTab(tabId) {
-    // #6 #taptab #remove selection from all buttons...
+    // remove selection from all buttons...
     $('#tab-bar button').removeClass('selected');
 
-    //...#6 #taptab #log the new tab on change...
+    // log the new tab on change...
     console.log('Changing to tab', tabId);
 
-    //...#6 #taptab #add selection to the given tab button, its id is passed via the #argument tabId
+    // add selection to the given tab button, its id is passed via the #argument tabId
     $(tabId).addClass('selected');
 }
 
 /**
- * #6 #toggle (show/hide) the emojis menu #smile
+ * toggle (show/hide) the emojis menu #smile
  */
 function toggleEmojis() {
     /* $('#emojis').show(); // #show */

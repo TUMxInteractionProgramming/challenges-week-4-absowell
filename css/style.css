@@ -3,7 +3,7 @@
   * Background: #F5F5F5 (GREY 100)
   * Primary Text: black
   *
-  * Primary color: #3F51B5 (INDIGO)
+  * Primary color: #9C27B0 (PURPLE)
   * Primary color_text : white
   * Accent color: #CDDC39 (LIME)
   * Accent color_text: black
@@ -35,7 +35,7 @@ button, strong {
     height: 100%;
     width: 40%;
 
-    background-color: #3F51B5; /* temporary background color to see the effect, is completely hidden now */
+    background-color: #9C27B0; /* temporary background color to see the effect, is completely hidden now */
 }
 
 #chat {
@@ -58,7 +58,7 @@ button, strong {
 /* APP BAR */
 
 h1 {
-    background-color: #3F51B5;
+    background-color: #9C27B0;
     color: white;
 
     /* #5 #app-bar #general settings for both bars */
@@ -91,7 +91,7 @@ h1 a {
     color: white;
 }
 
-h1 #channel-star {
+h1 i.fa {
     /* #6 #liking #filled  */
     position:absolute;
     right: 16px;
@@ -134,27 +134,26 @@ li img {
 }
 
 li.selected {
-    color: #3F51B5;
-    border-left: 4px solid #3F51B5;
+    color: #9C27B0;
+    border-left: 4px solid #9C27B0;
+}
+
+#channels i.fa {
+    /* #7 #small change star and chevron sizing */
+    font-size: 24px;
 }
 
 /* TAB BAR */
 
-/* #5 #smileys #lazy: we can reuse most of the tab-bar's styles for the chat-bar */
 #tab-bar, #chat-bar {
     background-color: white;
     text-align: center;
-
-    /* #5 #tab-bar #bottom */
     position: absolute;
     bottom: 0;
     width: 100%;
-
-    /* #5 #tab-bar #flexify the buttons*/
     display: flex;
 }
 
-/* #5 #smileys #lazy: we can reuse most of the tab-bar buttons' styles for the chat-bar buttons */
 #tab-bar button, #chat-bar button {
     background-color: white;
     border: none;
@@ -162,31 +161,31 @@ li.selected {
     width: 33%;
     height: 72px;
     padding: 16px;
-
-    /* #5 #tab-bar #flexify the buttons by growing them equally */
     flex-grow: 1;
 }
 
 #tab-bar button.selected {
-    color: #3F51B5;
-    border-bottom: 4px solid #3F51B5;
+    color: #9C27B0;
+    border-bottom: 4px solid #9C27B0;
 }
 
-#tab-bar button img {
+#tab-bar i.fa {
+    /* #7 #tab change tab icons sizing */
     display: block;
+    font-size: 24px;
     margin: 0 auto 4px auto;
 }
 
-/* #5 CHAT BAR */
+/* CHAT BAR */
 
 #chat-bar button {
     /* #5 #smileys #override button styles. We set the chat bar to appear like a tab-bar above. This overrides the tab bar's button scaling */
     width: auto;
     flex-grow: 0;
+    font-size: 24px;
 }
 
 #emojis {
-    /* #5 #smileys #emojis menu */
     /* colors and borders */
     background-color:white;
     border: 1px solid black;
