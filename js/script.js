@@ -8,7 +8,7 @@ console.log("App is alive");
  */
 function switchChannel(channelName) {
     //Log the channel switch
-    console.log("Tuning in to channel", channelName.name);
+    console.log("Tuning in to channel", channelName);
 
     // #7 #dgst use object properties to write channel name
     document.getElementById('channel-name').innerHTML = channelName.name;
@@ -16,13 +16,14 @@ function switchChannel(channelName) {
     // #7 #dgst use object properties to write channel location
     document.getElementById('channel-location').innerHTML = 'by <a href="http://w3w.co/' + channelName.createdBy + '" target="_blank"><strong>' + channelName.createdBy + '</strong></a>';
 
-    // liking channels on #click
-    $('#channel-star').toggleClass(className.starred ? 'fa-star-o' : 'fa-star');
-
+    // #7 #trn toggle star based on object property
+    $('#channel-star').removeClass('fa-star, fa-star-o');
+    $('#channel-star').addClass(channelName.starred ? 'fa-star' : 'fa-star-o');
+    
     /* highlight the selected #channel.
        This is inefficient (jQuery has to search all channel list items), but we'll change it later on */
     $('#channels li').removeClass('selected');
-    $('#channels li:contains(' + channelName + ')').addClass('selected');
+    $('#channels li:contains(' + channelName.name + ')').addClass('selected');
 }
 
 /* liking a channel on #click
