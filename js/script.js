@@ -1,6 +1,11 @@
 // start the #external #action and say hello
 console.log("App is alive");
 
+// #7 #var store currentChannel #fix set its initial state to initial active channel
+var currentChannel=art;
+// #7 #loc store currentLocation
+var currentLocation = {longitude: -71.118648, latitude: 42.398789, what3words: 'encounter.crush.wicked'};
+
 /**
 /**
  * function for the #channels name in the right app bar
@@ -24,6 +29,10 @@ function switchChannel(channelName) {
        This is inefficient (jQuery has to search all channel list items), but we'll change it later on */
     $('#channels li').removeClass('selected');
     $('#channels li:contains(' + channelName.name + ')').addClass('selected');
+    
+    //#7 set and log currentChannel
+    currentChannel = channelName;
+    console.log("currentChannel", currentChannel);
 }
 
 /* liking a channel on #click
@@ -31,8 +40,12 @@ function switchChannel(channelName) {
   */
 function star() {
     $('#channel-star').toggleClass('fa-star, fa-star-o');
+    //#7 #tgl change Boolean value of starred when star is clicked
+    currentChannel.starred=!currentChannel.starred;
+    //#7 #lst change star in the channel list
+     $('#channels li:contains(' + currentChannel.name + ') span i').removeClass('fa-star, fa-star-o');
+    $('#channels li:contains(' + currentChannel.name + ') span i').addClass(currentChannel.starred ? 'fa-star' : 'fa-star-o');
 }
-
 /**
  * selects the given tab
  * @param tabId #id of the tab
@@ -55,3 +68,4 @@ function toggleEmojis() {
     /* $('#emojis').show(); // #show */
     $('#emojis').toggle(); // #toggle
 }
+
