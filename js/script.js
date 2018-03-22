@@ -69,3 +69,45 @@ function toggleEmojis() {
     $('#emojis').toggle(); // #toggle
 }
 
+//attempting to format the date properly
+var today = new Date();
+var todayFull = today.toLocaleString();
+
+//#8 #constructor create a constructor function to store messages
+function Message(text) {
+    this.createdBy = currentLocation.what3words;
+    this.latitude = currentLocation.latitude;
+    this.longitude = currentLocation.longitude;
+    this.createdOn = todayFull;
+    this.expiresOn = Date.now() + 900000; 
+    this.text = text;
+    this.own = true;
+}
+
+//#s #message #element take a message object and make it a string representation of an HTML element
+function createMessageElement(messageObject) {
+    // convert expiresOn to expiresIn
+    var diffExpires = messageObject.expiresOn - Date.now();
+    var expiresIn = Math.round(((diffExpires % 86400000) % 3600000) / 60000);
+    
+    // append the message HTML to the messages div
+    $('#messages').append('<div class="message"><h3><a href="http://w3w.co/'
+        + messageObject.createdBy + 
+        'target="_blank"><strong>' 
+        + messageObject.createdBy + 
+        '</strong></a>' 
+        + messageObject.createdOn +
+        '<em>'
+        + expiresIn + 
+        ' min. left</em></h3><p>' 
+        + messageObject.text + 
+        '</p><button>+5 min.</button></div>')
+}
+
+//#8 #send create a function to create a new message object
+function sendMessage() {
+    var newMessage = new Message('Hello Chatter');
+    console.log(newMessage)
+    createMessageElement(newMessage);
+}
+
