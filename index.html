@@ -7,7 +7,7 @@
     <!-- embed the roboto font. This needs to go above your css -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
 
-    <!-- #7 #fa embed FontAwesome -->
+    <!-- #7 #icns #fa embed FontAwesome -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     
     <!-- embed external css -->
@@ -16,13 +16,15 @@
     <!-- embed jQuery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-    <!-- #7 #lnk embed channels script -->
+    <!-- #7 #chlob #lnk embed channels script -->
     <script src="js/channels.js"></script>
     
     <!-- embed external JavaScript -->
     <script src="js/script.js"></script>
 </head>
-<body>
+    
+<!-- #8 #channel #onload call listChannels function -->
+<body onload="listChannels()">
 
 <!-- channel area -->
 <div id="channels">
@@ -35,51 +37,7 @@
 
     <!-- CHANNELS -->
     <ul>
-        <li onclick="switchChannel(science)">
-            #Science
-            <span class="channel-meta">
-                <!-- #7 #chl replace star and chevron images with FontAwesome icons -->
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-chevron-right"></i>
-            </span>
-        </li>
-        
-        <li class="selected" onclick="switchChannel(art)">
-            #Art
-            <span class="channel-meta">
-                <!-- #7 #chl replace star and chevron images with FontAwesome icons -->
-                <i class="fa fa-star"></i>
-                <i class="fa fa-chevron-right"></i>
-            </span>
-        </li>
-        
-        <li onclick="switchChannel(literature)">
-            #Literature
-            <span class="channel-meta">
-                <!-- #7 #chl replace star and chevron images with FontAwesome icons -->
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-chevron-right"></i>
-            </span>
-        </li>
-        
-        <li onclick="switchChannel(music)">
-            #Music
-            <span class="channel-meta">
-                <!-- #7 #chl replace star and chevron images with FontAwesome icons -->
-                <i class="fa fa-star"></i>
-                <i class="fa fa-chevron-right"></i>
-            </span>
-        </li>
-
-        <li onclick="switchChannel(histor)">
-            #History
-            <span class="channel-meta">
-                <!-- #7 #chl replace star and chevron images with FontAwesome icons -->
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-chevron-right"></i>
-            </span>
-        </li>
-
+    <!-- #8 #channels inserted here dynamically onload #remove static channels -->
     </ul>
 
     <!-- TAB BAR -->
@@ -146,6 +104,9 @@
             <!-- #7 #smile replace smiley with FontAwesome icon -->
             <i class="fa fa-smile-o"></i>
         </button>
+        <!-- #8 #input #element add an input element #prefill with placeholder text #limit text length -->
+        <input type="text" name="messagetext" value="Message..." maxlength="140">
+        <!-- #8 #message #send create right arrow FA icon button-->
         <button id="right-arrow" onclick="sendMessage()"> 
         <i class="fa fa-arrow-right"></i>
         </button>

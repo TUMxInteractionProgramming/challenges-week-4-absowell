@@ -35,14 +35,13 @@ function switchChannel(channelName) {
     console.log("currentChannel", currentChannel);
 }
 
-/* liking a channel on #click
-  * #7 #str use toggleClass to change star on click
-  */
+// liking a channel on #click
 function star() {
+    // #7 #icns #str use toggleClass to change star on click
     $('#channel-star').toggleClass('fa-star, fa-star-o');
-    //#7 #tgl change Boolean value of starred when star is clicked
+    //#7 #star #tgl change Boolean value of starred when star is clicked
     currentChannel.starred=!currentChannel.starred;
-    //#7 #lst change star in the channel list
+    //#7 #star #lst change star in the channel list
      $('#channels li:contains(' + currentChannel.name + ') span i').removeClass('fa-star, fa-star-o');
     $('#channels li:contains(' + currentChannel.name + ') span i').addClass(currentChannel.starred ? 'fa-star' : 'fa-star-o');
 }
@@ -69,12 +68,10 @@ function toggleEmojis() {
     $('#emojis').toggle(); // #toggle
 }
 
-//attempting to format the date properly
-var today = new Date();
-var todayFull = today.toLocaleString();
-
-//#8 #constructor create a constructor function to store messages
+//#8 #message #constructor create a constructor function to store messages
 function Message(text) {
+    var today = new Date();
+    var todayFull = today.toLocaleString();
     this.createdBy = currentLocation.what3words;
     this.latitude = currentLocation.latitude;
     this.longitude = currentLocation.longitude;
@@ -84,16 +81,16 @@ function Message(text) {
     this.own = true;
 }
 
-//#s #message #element take a message object and make it a string representation of an HTML element
+//#8 #message #element take a message object and make it a string representation of an HTML element
 function createMessageElement(messageObject) {
-    // convert expiresOn to expiresIn
+    // #8 #message convert expiresOn to expiresIn
     var diffExpires = messageObject.expiresOn - Date.now();
     var expiresIn = Math.round(((diffExpires % 86400000) % 3600000) / 60000);
     
-    // append the message HTML to the messages div
+    // #8 #message #append the message HTML to the messages div
     $('#messages').append('<div class="message"><h3><a href="http://w3w.co/'
         + messageObject.createdBy + 
-        'target="_blank"><strong>' 
+        '" target="_blank"><strong>' 
         + messageObject.createdBy + 
         '</strong></a>' 
         + messageObject.createdOn +
@@ -104,10 +101,13 @@ function createMessageElement(messageObject) {
         '</p><button>+5 min.</button></div>')
 }
 
-//#8 #send create a function to create a new message object
+//#8 #message #send create a function to create a new message object 
 function sendMessage() {
-    var newMessage = new Message('Hello Chatter');
+ // #8 #input #real take input from message bo
+    var newMessage = new Message($('input[name = "messagetext"]').val());
     console.log(newMessage)
     createMessageElement(newMessage);
+ // #8 #input #clear the input after message has been sent
+    $('input[name = "messagetext"]').val('')
 }
 

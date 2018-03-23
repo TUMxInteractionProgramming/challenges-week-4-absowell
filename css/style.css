@@ -27,7 +27,7 @@ button, strong {
     text-transform: uppercase;
 }
 
-    /* #7 #tab change tab icons sizing */
+    /* #7 #icns #small change tab icons sizing */
 .fa {
     font-size: 24px;
 }
@@ -178,11 +178,14 @@ li.selected {
 
 /* CHAT BAR */
 
+#chat-bar {
+    align-content: space-between;
+}
+
 #chat-bar button {
     /* smileys override button styles. We set the chat bar to appear like a tab-bar above. This overrides the tab bar's button scaling */
     width: auto;
-    flex-grow: 0;
-    font-size: 24px;
+    flex-grow:0;
 }
 
 #emojis {
@@ -210,10 +213,11 @@ li.selected {
     display: none;
 }
 
-    /* #8 #message #send position right arrow on chat bar */
-#right-arrow {
-    position: absolute;
-    right: 16px;
+/* #8 #input #styles message input box */
+#chat-bar input {
+    flex-grow: 1;
+    font-size: medium;
+    border: none;
 }
 
 /* MESSAGES */
