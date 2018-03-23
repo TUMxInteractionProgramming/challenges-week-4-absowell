@@ -139,7 +139,7 @@ li.selected {
     border-left: 4px solid #9C27B0;
 }
 
-li span i{
+li .fa{
     font-size:24px;
 }
 
