@@ -27,10 +27,6 @@ button, strong {
     text-transform: uppercase;
 }
 
-    /* #7 #icns #small change tab icons sizing */
-.fa {
-    font-size: 24px;
-}
 
 /* LAYOUT #5 #split */
 
@@ -282,4 +278,9 @@ li span i{
 
 .message.own {
     margin-left: 17.5%;
+}
+
+    /* #7 #icns #small change tab icons sizing */
+.fa {
+    font-size: 24px;
 }
