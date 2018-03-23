@@ -174,6 +174,7 @@ li span i{
     /* #7 #tab change tab icons sizing */
     display: block;
     margin: 0 auto 4px auto;
+    font-size:24px;
 }
 
 /* CHAT BAR */
@@ -186,6 +187,7 @@ li span i{
     /* smileys override button styles. We set the chat bar to appear like a tab-bar above. This overrides the tab bar's button scaling */
     width: auto;
     flex-grow:0;
+    font-size:24px;
 }
 
 #emojis {
