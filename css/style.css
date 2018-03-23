@@ -143,6 +143,10 @@ li.selected {
     border-left: 4px solid #9C27B0;
 }
 
+li span i{
+    font-size:24px;
+}
+
 
 /* TAB BAR */
 
